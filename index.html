@@ -1,35 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>FishSenseSwift Wiki</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      line-height: 1.6;
+    /* Reset some basics */
+    * {
+      box-sizing: border-box;
     }
-    h1, h2, h3 {
-      color: #003366;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      line-height: 1.6;
+      background: #f0f8ff;
+      color: #1a1a1a;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+    }
+    header img {
+      width: 48px;
+      height: 48px;
+    }
+    header h1 {
+      color: #004466;
+      font-size: 2.2rem;
+      margin: 0;
+    }
+    h2 {
+      color: #005580;
+      border-bottom: 2px solid #007acc;
+      padding-bottom: 0.25rem;
+      margin-top: 2.5rem;
     }
     a {
       color: #007acc;
       text-decoration: none;
     }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 1.3rem;
+    }
     hr {
       margin: 2rem 0;
+      border: none;
+      border-top: 2px solid #007acc;
+      opacity: 0.3;
+    }
+    /* Image styling */
+    .fish-image {
+      float: right;
+      width: 180px;
+      margin: 0 0 1rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      .fish-image {
+        float: none;
+        display: block;
+        margin: 1rem auto;
+        width: 100%;
+        max-width: 300px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>FishSenseSwift Wiki</h1>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Goldfish3.jpg/120px-Goldfish3.jpg" alt="Fish Icon" />
+    <h1>FishSenseSwift Wiki</h1>
+  </header>
 
-  <p>This project simplifies fish measurement and monitoring during catch-and-release operations. Instead of manually measuring and identifying each fish, we’re developing an iOS app that uses the device’s camera and LiDAR to detect fish, identify head and tail positions, and calculate length automatically. With machine learning, the app will also identify species and streamline data collection for marine or citizen scientists.</p>
+  <p><img class="fish-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Trout-2007-1.jpg/320px-Trout-2007-1.jpg" alt="Fish in Water" />This project simplifies fish measurement and monitoring during catch-and-release operations. Instead of manually measuring and identifying each fish, we’re developing an iOS app that uses the device’s camera and LiDAR to detect fish, identify head and tail positions, and calculate length automatically. With machine learning, the app will also identify species and streamline data collection for marine or citizen scientists.</p>
   
-  <hr>
+  <hr />
 
   <h2>Key Features</h2>
   <ul>
@@ -38,16 +103,16 @@
     <li><strong>Session Management & Cloud Upload</strong> – Organizes catch sessions and uploads collected data to the cloud for easy access and analysis.</li>
   </ul>
 
-  <hr>
+  <hr />
 
   <h2>Repository Organization</h2>
   <p>We are using two main repositories for this project:</p>
   <ul>
-    <li><strong>This repository</strong> – Contains the core iOS application that handles fish detection, measurement, and session management.</li>
+    <li><a href="https://github.com/duckddclown/FishSenseSwift/tree/main">iOS Swift App</a> – Contains the core iOS application that handles fish detection, measurement, and session management.</li>
     <li><a href="https://github.com/UCSD-E4E/fishsense.rs/tree/237D">fishsense.rs</a> – A supporting library with Rust-based fish length estimation logic.</li>
   </ul>
 
-  <hr>
+  <hr />
 
   <h2>Replicating the Project</h2>
   <ul>
@@ -56,18 +121,17 @@
     <li>Use the scripts in <code>/scripts</code> to preprocess data and train custom models</li>
   </ul>
 
-  <hr>
+  <hr />
 
   <h2>Team Members</h2>
   <ul>
-    <li><strong>duckddclown</strong> (Project Lead)</li>
     <li>Anushri Eswaran (aeswaran@ucsd.edu)</li>
     <li>Ziyuan Lin</li>
     <li>Tanishq Rathore</li>
     <li>Chris</li>
   </ul>
 
-  <hr>
+  <hr />
 
   <h2>Documentation & Resources</h2>
   <ul>
@@ -77,12 +141,12 @@
     <li><a href="../tree/main/Resources/Datasets">Datasets</a></li>
   </ul>
 
-  <hr>
+  <hr />
 
   <h2>Contribution Guidelines</h2>
   <p>Contributions are welcome! Please read our <a href="../blob/main/CONTRIBUTING.md">contributing guidelines</a> and <a href="../blob/main/CODE_OF_CONDUCT.md">code of conduct</a> before submitting a pull request.</p>
 
-  <hr>
+  <hr />
 
   <h2>Contact & Links</h2>
   <ul>
@@ -91,7 +155,9 @@
     <li>For questions, open an issue or contact a team member.</li>
   </ul>
 
-  <p><em>This wiki is a living document and will be updated throughout the project lifecycle. Check back regularly for new materials and updates!</em></p>
+  <footer>
+    <p><em>This wiki is a living document and will be updated throughout the project lifecycle. Check back regularly for new materials and updates!</em></p>
+  </footer>
 
 </body>
 </html>
