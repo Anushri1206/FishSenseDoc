@@ -54,7 +54,6 @@
       border-top: 2px solid #007acc;
       opacity: 0.3;
     }
-    /* Image styling */
     .fish-image {
       float: right;
       width: 180px;
@@ -70,7 +69,6 @@
       border-top: 1px solid #ccc;
       padding-top: 1rem;
     }
-    /* Responsive */
     @media (max-width: 600px) {
       body {
         padding: 1rem;
@@ -88,11 +86,11 @@
 <body>
 
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Goldfish3.jpg/120px-Goldfish3.jpg" alt="Fish Icon" />
-    <h1>FishSenseSwift Wiki</h1>
+    <img src="images/logo.jpeg" alt="Fish Icon" />
+    <h1>FishSense iOS Application</h1>
   </header>
 
-  <p><img class="fish-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Trout-2007-1.jpg/320px-Trout-2007-1.jpg" alt="Fish in Water" />This project simplifies fish measurement and monitoring during catch-and-release operations. Instead of manually measuring and identifying each fish, we’re developing an iOS app that uses the device’s camera and LiDAR to detect fish, identify head and tail positions, and calculate length automatically. With machine learning, the app will also identify species and streamline data collection for marine or citizen scientists.</p>
+  <p><img class="fish-image" src="images/george.jpg"  alt="Meet George" />This project simplifies fish measurement and monitoring during catch-and-release operations. Instead of manually measuring and identifying each fish, we’re developing an iOS app that uses the device’s camera and LiDAR to detect fish, identify head and tail positions, and calculate length automatically. With machine learning, the app will also identify species and streamline data collection for marine or citizen scientists.</p>
   
   <hr />
 
@@ -105,46 +103,81 @@
 
   <hr />
 
-  <h2>Repository Organization</h2>
-  <p>We are using two main repositories for this project:</p>
-  <ul>
-    <li><a href="https://github.com/duckddclown/FishSenseSwift/tree/main">iOS Swift App</a> – Contains the core iOS application that handles fish detection, measurement, and session management.</li>
-    <li><a href="https://github.com/UCSD-E4E/fishsense.rs/tree/237D">fishsense.rs</a> – A supporting library with Rust-based fish length estimation logic.</li>
-  </ul>
+<h2>Repository Organization</h2>
+<p>We are using two main repositories for this project: Follow the README in both the repositories for replicating it</p>
+<ul>
+  <li>
+    <a href="https://github.com/duckddclown/FishSenseSwift/tree/main">iOS Swift App</a> – Contains the core iOS application that handles fish detection, measurement, and session management.
+    <blockquote style="margin: 0.5rem 0 1rem 1.5rem; font-style: italic; color: #555;">
+      This repository includes the Swift code for real-time fish detection using the iPhone's camera and LiDAR, with session management features.
+    </blockquote>
+    <p style="margin-left: 1.5rem;"><strong>Please check out the README in this repository for detailed setup and usage instructions.</strong></p>
+  </li>
+  <li>
+    <a href="https://github.com/UCSD-E4E/fishsense.rs/tree/237D">fishsense.rs</a> – A supporting library with Rust-based fish length estimation logic.
+    <blockquote style="margin: 0.5rem 0 1rem 1.5rem; font-style: italic; color: #555;">
+      This Rust library provides the core algorithms for estimating fish length from sensor data, designed to be efficient and accurate.
+    </blockquote>
+    <p style="margin-left: 1.5rem;"><strong>Please check out the README in this repository for detailed build and integration steps.</strong></p>
+  </li>
+</ul>
+
 
   <hr />
 
-  <h2>Replicating the Project</h2>
-  <ul>
-    <li>Follow the instructions in the <a href="../blob/main/README.md">README.md</a></li>
-    <li>Refer to <code>/Docs</code> for datasets, model training, and evaluation details</li>
-    <li>Use the scripts in <code>/scripts</code> to preprocess data and train custom models</li>
-  </ul>
+
+  <h2>System Design</h2>
+<div>
+  <img src="images/systemdesigncse145.png" alt="System Design" width="500" style="margin-right: 1rem; margin-bottom: 1rem;" />
+</div>
+
+  <hr />
+<h2>Application</h2>
+<p>Below is a sample screenshot of the iOS application interface while measuring fish length in real time:</p>
+<div>
+  <img src="images/image1.png" alt="iOS Application Screenshot" width="500" style="margin-right: 1rem; margin-bottom: 1rem;" />
+</div>
+<i> More screenshots to be added soon</i>
 
   <hr />
 
-  <h2>Team Members</h2>
-  <ul>
-    <li>Anushri Eswaran (aeswaran@ucsd.edu)</li>
-    <li>Ziyuan Lin</li>
-    <li>Tanishq Rathore</li>
-    <li>Chris</li>
-  </ul>
+<h2>Analysis of Fish Length Estimation Error</h2>
+<p>Our fish length estimation algorithm achieves an error rate of <strong>less than 10%</strong> in iPhone, demonstrating high accuracy in practical scenarios.</p>
+<div>
+  <img src="images/ErrorFishLength.png" alt="Fish Length Error Graph" width="500" style="margin-right: 1rem; margin-bottom: 1rem;" />
+</div>
+<p>More detailed analysis can be found in the final report linked below.</p>
+
+
+  <hr />
+
+<h2>Fish Species Classification Model</h2>
+<p>We use a fish classification model based on the Fishial model, and exported directly from <strong>TorchScript to ONNX</strong> format for lightweight deployment. This allows us to run the model efficiently on iOS devices using ONNX Runtime.</p>
+
+<p>The ONNX model is publicly hosted on Hugging Face for reproducibility and integration:</p>
+<a href="https://huggingface.co/unushri/onnx-fish-classifier">ONNX Fish Classifier – Hugging Face</a>
+
+
+<p>This model enables real-time, on-device fish species recognition within our iOS app.</p>
+
+<h2>Team Members</h2>
+<ul>
+  <li>Anushri Eswaran (<a href="mailto:aeswaran@ucsd.edu">aeswaran@ucsd.edu</a>)</li>
+  <li>Ziyuan Lin (<a href="mailto:zil102@ucsd.edu">zil102@ucsd.edu</a>)</li>
+  <li>Tanishq Rathore (<a href="mailto:trathore@ucsd.edu">trathore@ucsd.edu</a>)</li>
+  <li>Chris Crutchfield (<a href="mailto:ccrutchf@ucsd.edu">ccrutchf@ucsd.edu</a>)</li>
+</ul>
+
 
   <hr />
 
   <h2>Documentation & Resources</h2>
   <ul>
-    <li><a href="../tree/main/Docs/Presentations">Class Presentations</a></li>
-    <li><a href="../tree/main/Docs/Reports">Final Reports</a></li>
-    <li><a href="../tree/main/Resources/Videos">Demo Videos</a></li>
-    <li><a href="../tree/main/Resources/Datasets">Datasets</a></li>
+    <li><a href="https://drive.google.com/file/d/1PRv8hv0kTh3giLQAmTzE972KD1L8BGvR/view?usp=sharing">Milestone Report</a></li>
+    <li><a href="https://drive.google.com/file/d/1x6L5EDpC4PcyRDSY7Cqjuj0_I1KAzXvp/view?usp=sharing">Project Specification</a></li>
+    <li><a href="https://youtu.be/GEI8kwGV74w">Demo Videos</a></li> 
+
   </ul>
-
-  <hr />
-
-  <h2>Contribution Guidelines</h2>
-  <p>Contributions are welcome! Please read our <a href="../blob/main/CONTRIBUTING.md">contributing guidelines</a> and <a href="../blob/main/CODE_OF_CONDUCT.md">code of conduct</a> before submitting a pull request.</p>
 
   <hr />
 
