@@ -4,81 +4,139 @@
   <meta charset="UTF-8" />
   <title>FishSense iOS Application</title>
   <style>
-    /* Reset some basics */
+    :root {
+      --primary: #006494;
+      --accent: #00a6fb;
+      --bg: #f8fbfd;
+      --text: #1a1a1a;
+      --soft-border: #cce0f0;
+    }
+
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 900px;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 1000px;
       margin: 2rem auto;
-      padding: 1rem 2rem;
-      line-height: 1.6;
-      background: #f0f8ff;
-      color: #1a1a1a;
+      padding: 2rem;
+      line-height: 1.7;
     }
+
     header {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
+      margin-bottom: 2rem;
+    }
+
+    header img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    header h1 {
+      color: var(--primary);
+      font-size: 2.4rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.6rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.4rem;
+    }
+
+    p, li {
+      font-size: 1.05rem;
+      margin-bottom: 0.8rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
       margin-bottom: 1.5rem;
     }
-    header img {
-      width: 48px;
-      height: 48px;
-    }
-    header h1 {
-      color: #004466;
-      font-size: 2.2rem;
-      margin: 0;
-    }
-    h2 {
-      color: #005580;
-      border-bottom: 2px solid #007acc;
-      padding-bottom: 0.25rem;
-      margin-top: 2.5rem;
-    }
+
     a {
-      color: #007acc;
+      color: var(--accent);
       text-decoration: none;
+      transition: 0.3s;
     }
+
     a:hover {
       text-decoration: underline;
     }
-    ul {
-      padding-left: 1.3rem;
-    }
-    hr {
-      margin: 2rem 0;
-      border: none;
-      border-top: 2px solid #007acc;
-      opacity: 0.3;
-    }
+
     .fish-image {
       float: right;
-      width: 180px;
+      width: 200px;
       margin: 0 0 1rem 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
     }
+
+    .fish-image:hover {
+      transform: scale(1.03);
+    }
+
+    blockquote {
+      margin: 0.5rem 0 1rem 1.5rem;
+      padding-left: 1rem;
+      border-left: 4px solid var(--soft-border);
+      color: #555;
+      font-style: italic;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid var(--soft-border);
+      margin: 2rem 0;
+    }
+
     footer {
       margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #555;
-      text-align: center;
-      border-top: 1px solid #ccc;
       padding-top: 1rem;
+      border-top: 1px solid #ccc;
+      text-align: center;
+      color: #666;
+      font-size: 0.95rem;
     }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
+
+    @media (max-width: 700px) {
       .fish-image {
         float: none;
         display: block;
         margin: 1rem auto;
-        width: 100%;
-        max-width: 300px;
+        width: 90%;
+      }
+
+      body {
+        padding: 1.2rem;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -90,84 +148,87 @@
     <h1>FishSense iOS Application</h1>
   </header>
 
-  <p><img class="fish-image" src="images/george.jpg"  alt="Meet George" />This project simplifies fish measurement and monitoring during catch-and-release operations. Instead of manually measuring and identifying each fish, we’re developing an iOS app that uses the device’s camera and LiDAR to detect fish, identify head and tail positions, and calculate length automatically. With machine learning, the app will also identify species and streamline data collection for marine or citizen scientists.</p>
-  
+  <p>
+    <img class="fish-image" src="images/george.jpg" alt="Meet George" />
+    This project simplifies fish measurement and monitoring during catch-and-release operations.
+    We’re developing an iOS app that uses the device’s camera and LiDAR to detect fish, identify
+    head and tail positions, and calculate length automatically. With machine learning, the app
+    will also identify species and streamline data collection for marine or citizen scientists.
+  </p>
+
   <hr />
 
   <h2>Key Features</h2>
   <ul>
-    <li><strong>Accurate Fish Length Detection</strong> – Uses the iOS device’s camera and LiDAR to identify head and tail positions and calculate length.</li>
-    <li><strong>Fish Species Detection</strong> – Applies machine learning to recognize different fish species in real-time.</li>
-    <li><strong>Session Management & Cloud Upload</strong> – Organizes catch sessions and uploads collected data to the cloud for easy access and analysis.</li>
+    <li><strong>Accurate Fish Length Detection</strong> – Uses the iOS device’s camera and LiDAR.</li>
+    <li><strong>Fish Species Detection</strong> – Applies machine learning to recognize species.</li>
+    <li><strong>Session Management & Cloud Upload</strong> – Organizes and uploads data efficiently.</li>
   </ul>
 
   <hr />
 
-<h2>Repository Organization</h2>
-<p>We are using two main repositories for this project: Follow the README in both the repositories for replicating it</p>
-<ul>
-  <li>
-    <a href="https://github.com/duckddclown/FishSenseSwift/tree/main">iOS Swift App</a> – Contains the core iOS application that handles fish detection, measurement, and session management.
-    <blockquote style="margin: 0.5rem 0 1rem 1.5rem; font-style: italic; color: #555;">
-      This repository includes the Swift code for real-time fish detection using the iPhone's camera and LiDAR, with session management features.
-    </blockquote>
-    <p style="margin-left: 1.5rem;"><strong>Please check out the README in this repository for detailed setup and usage instructions.</strong></p>
-  </li>
-  <li>
-    <a href="https://github.com/UCSD-E4E/fishsense.rs/tree/237D">fishsense.rs</a> – A supporting library with Rust-based fish length estimation logic.
-    <blockquote style="margin: 0.5rem 0 1rem 1.5rem; font-style: italic; color: #555;">
-      This Rust library provides the core algorithms for estimating fish length from sensor data, designed to be efficient and accurate.
-    </blockquote>
-    <p style="margin-left: 1.5rem;"><strong>Please check out the README in this repository for detailed build and integration steps.</strong></p>
-  </li>
-</ul>
-
+  <h2>Repository Organization</h2>
+  <p>We use two repositories. Follow the README in each for replication:</p>
+  <ul>
+    <li>
+      <a href="https://github.com/duckddclown/FishSenseSwift/tree/main">iOS Swift App</a>
+      <blockquote>
+        Swift code for real-time fish detection using the iPhone's camera and LiDAR.
+      </blockquote>
+      <p><strong>See the README for setup and usage.</strong></p>
+    </li>
+    <li>
+      <a href="https://github.com/UCSD-E4E/fishsense.rs/tree/237D">fishsense.rs</a>
+      <blockquote>
+        Rust library for fish length estimation from sensor data.
+      </blockquote>
+      <p><strong>See the README for build and integration steps.</strong></p>
+    </li>
+  </ul>
 
   <hr />
-
 
   <h2>System Design</h2>
-<div>
-  <img src="images/systemdesigncse145.png" alt="System Design" width="500" style="margin-right: 1rem; margin-bottom: 1rem;" />
-</div>
-
-  <hr />
-<h2>Application</h2>
-<p>Below is a sample screenshot of the iOS application interface while measuring fish length in real time:</p>
-<div>
-  <img src="images/image1.png" alt="iOS Application Screenshot" width="500" style="margin-right: 1rem; margin-bottom: 1rem;" />
-</div>
-<i> More screenshots to be added soon</i>
+  <img src="images/systemdesigncse145.png" alt="System Design" />
 
   <hr />
 
-<h2>Analysis of Fish Length Estimation Error</h2>
-<p>Our fish length estimation algorithm achieves an error rate of <strong>less than 10%</strong> in iPhone, demonstrating high accuracy in practical scenarios.</p>
-<div>
-  <img src="images/ErrorFishLength.png" alt="Fish Length Error Graph" width="500" style="margin-right: 1rem; margin-bottom: 1rem;" />
-</div>
-<p>More detailed analysis can be found in the final report linked below.</p>
-
+  <h2>Application</h2>
+  <p>Sample screenshot of the app in action measuring fish length:</p>
+  <img src="images/image1.png" alt="iOS Application Screenshot" />
+  <i>More screenshots coming soon.</i>
 
   <hr />
 
-<h2>Fish Species Classification Model</h2>
-<p>We use a fish classification model based on the Fishial model, and exported directly from <strong>TorchScript to ONNX</strong> format for lightweight deployment. This allows us to run the model efficiently on iOS devices using ONNX Runtime.</p>
+  <h2>Analysis of Fish Length Estimation Error</h2>
+  <p>
+    Our algorithm has an error rate of <strong>less than 10%</strong> on iPhone and <strong> kess than 16%</strong>, demonstrating high accuracy.
+  </p>
+  <img src="images/ErrorFishLength.png" alt="Fish Length Error Graph" />
+  <p>For more details, refer to the final report below.</p>
 
-<p>The ONNX model is publicly hosted on Hugging Face for reproducibility and integration:</p>
-<a href="https://huggingface.co/unushri/onnx-fish-classifier">ONNX Fish Classifier – Hugging Face</a>
+  <hr />
 
+  <h2>Fish Species Classification Model</h2>
+  <p>
+    We use a classification model based on Fishial, exported from <strong>TorchScript to ONNX</strong>
+    for efficient iOS deployment via ONNX Runtime.
+  </p>
+  <p>
+    Model available on Hugging Face:<br />
+    <a href="https://huggingface.co/unushri/onnx-fish-classifier">ONNX Fish Classifier</a>
+  </p>
+  <p>This enables real-time, on-device fish species recognition.</p>
 
-<p>This model enables real-time, on-device fish species recognition within our iOS app.</p>
+  <hr />
 
-<h2>Team Members</h2>
-<ul>
-  <li>Anushri Eswaran (<a href="mailto:aeswaran@ucsd.edu">aeswaran@ucsd.edu</a>)</li>
-  <li>Ziyuan Lin (<a href="mailto:zil102@ucsd.edu">zil102@ucsd.edu</a>)</li>
-  <li>Tanishq Rathore (<a href="mailto:trathore@ucsd.edu">trathore@ucsd.edu</a>)</li>
-  <li>Chris Crutchfield (<a href="mailto:ccrutchf@ucsd.edu">ccrutchf@ucsd.edu</a>)</li>
-</ul>
-
+  <h2>Team Members</h2>
+  <ul>
+    <li>Anushri Eswaran – <a href="mailto:aeswaran@ucsd.edu">aeswaran@ucsd.edu</a></li>
+    <li>Ziyuan Lin – <a href="mailto:zil102@ucsd.edu">zil102@ucsd.edu</a></li>
+    <li>Tanishq Rathore – <a href="mailto:trathore@ucsd.edu">trathore@ucsd.edu</a></li>
+    <li>Chris Crutchfield – <a href="mailto:ccrutchf@ucsd.edu">ccrutchf@ucsd.edu</a></li>
+  </ul>
 
   <hr />
 
@@ -175,21 +236,20 @@
   <ul>
     <li><a href="https://drive.google.com/file/d/1PRv8hv0kTh3giLQAmTzE972KD1L8BGvR/view?usp=sharing">Milestone Report</a></li>
     <li><a href="https://drive.google.com/file/d/1x6L5EDpC4PcyRDSY7Cqjuj0_I1KAzXvp/view?usp=sharing">Project Specification</a></li>
-    <li><a href="https://youtu.be/GEI8kwGV74w">Demo Videos</a></li> 
-
+    <li><a href="https://youtu.be/GEI8kwGV74w">Demo Videos</a></li>
   </ul>
 
   <hr />
 
   <h2>Contact & Links</h2>
   <ul>
-    <li><strong>iOS Repository:</strong> <a href="https://github.com/duckddclown/FishSenseSwift">github.com/duckddclown/FishSenseSwift</a></li>
-    <li><strong>Rust Repository:</strong> <a href="https://github.com/UCSD-E4E/fishsense.rs/tree/237D">github.com/UCSD-E4E/fishsense.rs/tree/237D</a></li>
-    <li>For questions, open an issue or contact a team member.</li>
+    <li><strong>iOS Repository:</strong> <a href="https://github.com/duckddclown/FishSenseSwift">FishSenseSwift</a></li>
+    <li><strong>Rust Repository:</strong> <a href="https://github.com/UCSD-E4E/fishsense.rs/tree/237D">fishsense.rs</a></li>
+    <li>For questions, open an issue or email a team member.</li>
   </ul>
 
   <footer>
-    <p><em>This wiki is a living document and will be updated throughout the project lifecycle. Check back regularly for new materials and updates!</em></p>
+    <p><em>This wiki is a living document and will be updated regularly.</em></p>
   </footer>
 
 </body>
